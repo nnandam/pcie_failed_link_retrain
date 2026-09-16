@@ -7,9 +7,8 @@ During our platform bring-up phase for a dense x86 dual-host architecture routin
 Identified a bug in the function pcie_failed_link_retarin() in the kernel tree (drivers/pci/quirks.c)
 Pointer to vanilla Linux kernel code quirks.c https://elixir.bootlin.com/linux/v6.6/source/drivers/pci/quirks.c
 
-
-bool pcie_failed_link_retrain(struct pci_dev *dev)
-{
+```c
+bool pcie_failed_link_retrain(struct pci_dev *dev) {
 	static const struct pci_device_id ids[] = {
 		{ PCI_VDEVICE(ASMEDIA, 0x2824) }, /* ASMedia ASM2824 */
 		{}
@@ -54,6 +53,6 @@ bool pcie_failed_link_retrain(struct pci_dev *dev)
 			return false;
 		}
 	}
-
+```
 	return true;
 }
